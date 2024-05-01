@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { HeaderComponent } from "../../ui/header.component";
+import { HeaderComponent } from "../../shared/ui/header.component";
 import { PlaylistsComponent } from "./playlists/playlists.component";
 
 @Component({

@@ -1,0 +1,31 @@
+<div
+  class="card-media"
+  [style.--marginTop]="media().type === 'image' ? '20px' : 0"
+>
+  @if (media().type === 'image') {
+    <img
+      class="playlist-image"
+      [src]="media().url"
+      [alt]="title()"
+      [width]="media().width"
+      [height]="media().height"
+    />
+  } @else {
+    <div data-persist-container="true">
+      <video
+        loop
+        muted
+        autoplay
+        playsinline
+        class="playlist-image"
+        data-persist="true"
+        [width]="media().width"
+        [height]="media().height"
+      >
+        <source [src]="media().url" type="video/mp4" />
+      </video>
+    </div>
+  }
+
+  <!-- PlayerControls -->
+</div>

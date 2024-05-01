@@ -18,4 +18,6 @@
   <h2 class="playlist-title">{{ playlist().title }}</h2>
 
   <app-card-stats [stats]="playlist().stats" />
+
+  <app-card-media [media]="playlist().media" [title]="playlist().title" [backgroundColor]="playlist().backgroundColor" />
 </a>

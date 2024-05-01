@@ -9,6 +9,13 @@ export interface Stats {
   time: string;
 }
 
+export interface Media {
+  type: string;
+  url: string;
+  width: string;
+  height: string;
+}
+
 export interface Playlist {
   id: string;
   title: string;
@@ -20,10 +27,5 @@ export interface Playlist {
   secondaryTextColor: string;
   backgroundAnimation?: string;
   backgroundImage?: string;
-  media: {
-    type: string;
-    url: string;
-    width: string;
-    height: string;
-  };
+  media: Media;
 }
