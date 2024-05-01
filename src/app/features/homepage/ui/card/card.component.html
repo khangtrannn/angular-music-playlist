@@ -1,0 +1,19 @@
+<a
+  class="card"
+  [style.--backgroundColor]="playlist().backgroundColor"
+  [style.--textColor]="playlist().textColor"
+  [style.--backgroundImage]="playlist().backgroundImage"
+  [style.--secondaryTextColor]="playlist().secondaryTextColor"
+>
+  @if (playlist().backgroundAnimation === 'floatingSquares') {
+    <!--  -->
+  } @else if (playlist().backgroundAnimation === 'purpleVideo') {
+  <!--  -->
+  } @else {
+    <div class="solid-background playlist-background"></div>
+  }
+
+  <app-card-header [user]="playlist().user" />
+
+  <h2 class="playlist-title">{{ playlist().title }}</h2>
+</a>
