@@ -6,7 +6,7 @@ export const PLAYLISTS: Playlist[] = [
     // title: 'Saxophone House',
     title: 'Sơn Tùng MTP Collection',
     description:
-      'Most popular Saxophone House playlist on Spotify since 2013 | Updated weekly | Good vibes only | Photo by Atikh Bana',
+      'Most popular R&B playlist on Spotify since 2013 | Updated weekly | Good vibes only | Photo by Atikh Bana',
     user: {
       avatar: '/khangtrann.jpeg',
       name: 'Khang Tran',

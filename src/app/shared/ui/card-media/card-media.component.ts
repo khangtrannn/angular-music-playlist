@@ -12,6 +12,5 @@ import { PlayerControlsComponent } from '../player-controls/player-controls.comp
 })
 export class CardMediaComponent {
   title = input.required<string>();
-  backgroundColor = input.required<string>();
   media = input.required<Media>();
 }
