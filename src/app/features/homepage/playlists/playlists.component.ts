@@ -11,5 +11,5 @@ import { CardComponent } from '../ui/card/card.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlaylistsComponent {
-  playlists = PLAYLISTS.slice(0, 1);
+  playlists = PLAYLISTS;
 }

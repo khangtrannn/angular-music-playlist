@@ -31,7 +31,7 @@ export const PLAYLISTS: Playlist[] = [
     description:
       'The best indie rock vibes — classic and current. Headphones on | Video by Anna Shvets on pexels.com',
     user: {
-      avatar: '//user-avatar-2.webp',
+      avatar: '/user-avatar-2.webp',
       name: 'Jessica Houston',
       date: 'February 2023',
     },
@@ -46,7 +46,7 @@ export const PLAYLISTS: Playlist[] = [
     media: {
       type: 'video',
       url: '/dancing-woman.mp4',
-      width: '552',
+      width: '600',
       height: '427',
     },
   },
@@ -56,7 +56,7 @@ export const PLAYLISTS: Playlist[] = [
     description:
       'Unwind to these calm classical guitar pieces. Photo by Te NGuyen on Unsplash',
     user: {
-      avatar: '//user-avatar-3.webp',
+      avatar: '/user-avatar-3.webp',
       name: 'David Hickman',
       date: 'December 2022',
     },

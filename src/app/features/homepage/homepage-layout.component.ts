@@ -6,8 +6,10 @@ import { PlaylistsComponent } from "./playlists/playlists.component";
   selector: 'app-homepage',
   template: `
     <app-header />
-    <div class="tw-max-w-[600px] tw-mx-auto">
-      <app-playlists />
+    <div class="container">
+      <div class="tw-max-w-[600px] tw-mx-auto">
+        <app-playlists />
+      </div>
     </div>
   `,
   standalone: true,
