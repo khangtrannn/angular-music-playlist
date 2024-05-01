@@ -4,6 +4,7 @@
   [style.--textColor]="playlist().textColor"
   [style.--backgroundImage]="playlist().backgroundImage"
   [style.--secondaryTextColor]="playlist().secondaryTextColor"
+  [routerLink]="'/playlists/' + playlist().id"
 >
   @if (playlist().backgroundAnimation === 'floatingSquares') {
     <!--  -->
