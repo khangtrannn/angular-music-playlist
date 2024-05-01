@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PLAYLISTS } from '../../data';
 import { CardComponent } from './ui/card/card.component';
-import { HeaderComponent } from '../../shared/ui/header.component';
+import { HeaderComponent } from '../../shared/ui/header/header.component';
 
 @Component({
   selector: 'app-playlists',
