@@ -7,8 +7,8 @@ export const PLAYLISTS: Playlist[] = [
     description:
       'Most popular Saxophone House playlist on Spotify since 2013 | Updated weekly | Good vibes only | Photo by Atikh Bana',
     user: {
-      avatar: '/user-avatar.webp',
-      name: 'Annabelle Lucero',
+      avatar: '/khangtrann.jpeg',
+      name: 'Khang Tran',
       date: 'March 2023',
     },
     stats: {
