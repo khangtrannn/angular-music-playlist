@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { User } from '../../../../playlists.model';
+import { User } from '../../../playlists.model';
 
 @Component({
   selector: 'app-card-header',

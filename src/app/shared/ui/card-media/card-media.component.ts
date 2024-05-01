@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, input } from '@angular/core';
-import { Media } from '../../../../playlists.model';
+import { Media } from '../../../playlists.model';
 import { PlayerControlsComponent } from '../player-controls/player-controls.component';
 
 @Component({

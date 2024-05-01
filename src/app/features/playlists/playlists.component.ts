@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PLAYLISTS } from '../../data';
-import { CardComponent } from './ui/card/card.component';
+import { CardComponent } from '../../shared/ui/card/card.component';
 import { HeaderComponent } from '../../shared/ui/header/header.component';
 
 @Component({

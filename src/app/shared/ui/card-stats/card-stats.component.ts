@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, input } from '@angular/core';
-import { Stats } from '../../../../playlists.model';
+import { Stats } from '../../../playlists.model';
 
 @Component({
   selector: 'app-card-stats',

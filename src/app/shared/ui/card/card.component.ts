@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Playlist } from '../../../../playlists.model';
+import { Playlist } from '../../../playlists.model';
 import { BackgroundVideoComponent } from '../background-video/background-video.component';
 import { CardHeaderComponent } from '../card-header/card-header.component';
 import { CardMediaComponent } from '../card-media/card-media.component';
