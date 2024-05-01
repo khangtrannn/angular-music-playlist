@@ -4,5 +4,5 @@ import { provideRouter, withComponentInputBinding, withViewTransitions } from '@
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideExperimentalZonelessChangeDetection(), provideRouter(routes, withComponentInputBinding(), withViewTransitions())]
+  providers: [provideExperimentalZonelessChangeDetection(), provideRouter(routes, withComponentInputBinding(), withViewTransitions({ skipInitialTransition: true }))]
 };
