@@ -1,0 +1,21 @@
+
+
+.app-header {
+  --shadow-elevation-low: 0px .5px .6px hsl(var(--shadow-color) / .31), 0px 1px 1.3px -.8px hsl(var(--shadow-color) / .41), 0px 2.3px 2.9px -1.6px hsl(var(--shadow-color) / .52);
+  box-shadow: var(--shadow-elevation-low);
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: white;
+  view-transition-name: app-header;
+}
+
+.header-content {
+  margin: auto;
+  padding: 1.5rem 1.5rem;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

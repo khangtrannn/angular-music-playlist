@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-music-playlist": {
+    "angular-music-playlists": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-music-playlist",
+            "outputPath": "dist/angular-music-playlists",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-music-playlist:build:production"
+              "buildTarget": "angular-music-playlists:build:production"
             },
             "development": {
-              "buildTarget": "angular-music-playlist:build:development"
+              "buildTarget": "angular-music-playlists:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-music-playlist:build"
+            "buildTarget": "angular-music-playlists:build"
           }
         },
         "test": {
