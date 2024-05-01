@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { HeaderComponent } from "../../ui/header.component";
 import { PlaylistsComponent } from "./playlists/playlists.component";
 
@@ -11,6 +11,7 @@ import { PlaylistsComponent } from "./playlists/playlists.component";
     </div>
   `,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [HeaderComponent, PlaylistsComponent],
 })
 export class HomepageLayoutComponent {}

@@ -4,15 +4,17 @@ export interface User {
   date: string;
 }
 
+export interface Stats {
+  count: string;
+  time: string;
+}
+
 export interface Playlist {
   id: string;
   title: string;
   description: string;
   user: User;
-  stats: {
-    count: string;
-    time: string;
-  };
+  stats: Stats;
   backgroundColor: string;
   textColor: string;
   secondaryTextColor: string;
