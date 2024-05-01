@@ -7,9 +7,9 @@
   [routerLink]="'/playlists/' + playlist().id"
 >
   @if (playlist().backgroundAnimation === 'floatingSquares') {
-    <!--  -->
+    <app-floating-squares [isRounded]="true" />
   } @else if (playlist().backgroundAnimation === 'purpleVideo') {
-  <!--  -->
+    <app-background-video [isRounded]="true" />
   } @else {
     <div class="solid-background playlist-background"></div>
   }
