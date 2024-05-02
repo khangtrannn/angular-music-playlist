@@ -3,10 +3,10 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./features/playlists/playlists.routes'),
+    loadComponent: async () => (await import('./homepage.component')).HomepageComponent,
   },
   {
     path: 'playlists/:id',
-    loadChildren: () => import('./features/playlist-details/playlist-details.routes'),
+    loadComponent: async () => (await import('./homepage.component')).PlaylistComponent,
   }
 ];
