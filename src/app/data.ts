@@ -3,8 +3,7 @@ import { Playlist } from "./playlists.model";
 export const PLAYLISTS: Playlist[] = [
   {
     id: '1',
-    title: 'Saxophone House',
-    // title: 'Sơn Tùng MTP Collection',
+    title: 'Sơn Tùng MTP Collection',
     description:
       'Most popular R&B playlist on Spotify since 2013 | Updated weekly | Good vibes only | Photo by Atikh Bana',
     user: {
@@ -19,18 +18,18 @@ export const PLAYLISTS: Playlist[] = [
     backgroundColor: 'black',
     textColor: 'white',
     secondaryTextColor: 'rgb(195, 195, 195)',
-    media: {
-      type: 'image',
-      url: '/sax-player.webp',
-      width: '275',
-      height: '360',
-    },
     // media: {
     //   type: 'image',
-    //   url: '/son-tung.png',
-    //   width: '360',
+    //   url: '/sax-player.webp',
+    //   width: '275',
     //   height: '360',
     // },
+    media: {
+      type: 'image',
+      url: '/son-tung.png',
+      width: '360',
+      height: '360',
+    },
   },
   {
     id: '2',
