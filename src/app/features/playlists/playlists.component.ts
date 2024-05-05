@@ -6,9 +6,21 @@ import { HeaderComponent } from '../../shared/ui/header/header.component';
 
 @Component({
   selector: 'app-playlists',
-  templateUrl: './playlists.component.html',
-  styleUrls: ['./playlists.component.scss'],
   standalone: true,
+  template: `
+    <app-header />
+
+    <div class="container">
+      <div class="tw-max-w-[600px] tw-mx-auto">
+        <div class="card-list">
+          @for (playlist of playlists; track playlist.id) {
+            <app-card [playlist]="playlist" />
+          }
+        </div>
+      </div>
+    </div>
+  `,
+  styleUrls: ['./playlists.component.scss'],
   imports: [CardComponent, HeaderComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

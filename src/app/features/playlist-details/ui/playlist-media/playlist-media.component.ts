@@ -5,10 +5,24 @@ import { PlayerControlsComponent } from '../../../../shared/ui/player-controls/p
 @Component({
   selector: 'app-playlist-media',
   standalone: true,
-  imports: [PlayerControlsComponent],
-  templateUrl: './playlist-media.component.html',
+  template: `
+    <div class="playlist-media">
+      @if (media().type === 'image') {
+        <img [src]="media().url" [alt]="title()" class="playlist-image" />
+      } @else {
+        <div data-persist-container="true">
+            <video loop muted autoplay playsinline class="playlist-image" data-persist="true">
+              <source [src]="media().url" type="video/mp4" />
+            </video>
+          </div>
+      }
+
+      <app-player-controls [showExtraButtons]="true" />
+    </div>
+  `,
   styleUrl: './playlist-media.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  imports: [PlayerControlsComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlaylistMediaComponent {
   id = input.required<string>();

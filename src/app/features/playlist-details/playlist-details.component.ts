@@ -8,8 +8,6 @@ import {
 } from '@angular/core';
 import { PLAYLISTS } from '../../data';
 import { TracksComponent } from './tracks/tracks.component';
-import { FloatingSquaresComponent } from '../../shared/ui/floating-squares/floating-squares.component';
-import { BackgroundVideoComponent } from '../../shared/ui/background-video/background-video.component';
 import { CardStatsComponent } from '../../shared/ui/card-stats/card-stats.component';
 import { PlaylistMediaComponent } from './ui/playlist-media/playlist-media.component';
 import { PlaylistHeaderComponent } from './ui/playlist-header/playlist-header.component';
@@ -32,13 +30,7 @@ import { ViewTransitionService } from '../../shared/services/view-transition.ser
         [style.--secondaryTextColor]="playlist().secondaryTextColor"
       >
         <header>
-          @if (playlist()!.backgroundAnimation === 'floatingSquares') {
-            <app-floating-squares />
-          } @else if (playlist()!.backgroundAnimation === 'purpleVideo') {
-            <app-background-video />
-          } @else {
-            <div class="solid-background playlist-background"></div>
-          }
+          <div class="solid-background playlist-background"></div>
 
           <app-playlist-header
             [name]="playlist().user.name"
@@ -61,8 +53,6 @@ import { ViewTransitionService } from '../../shared/services/view-transition.ser
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     TracksComponent,
-    FloatingSquaresComponent,
-    BackgroundVideoComponent,
     CardStatsComponent,
     PlaylistHeaderComponent,
     PlaylistMediaComponent,
@@ -76,7 +66,12 @@ export class PlaylistDetailsComponent {
 
   #viewTransitionService = inject(ViewTransitionService);
 
+
   #activePlaylistEffect = effect(() => {
-      this.#viewTransitionService.setActivePlaylist(this.id());
+      const prevPageScroll = this.#viewTransitionService.prevPageScroll();
+
+      if (prevPageScroll) {
+        this.#viewTransitionService.setActivePlaylist(this.id());
+      }
     }, { allowSignalWrites: true });
 }
