@@ -36,7 +36,8 @@ import { PlaylistHeaderComponent } from './ui/playlist-header/playlist-header.co
           } @else if (playlist()!.backgroundAnimation === 'purpleVideo') {
             <app-background-video />
           } @else {
-            <div class="solid-background playlist-background"></div>
+            <!-- <div class="solid-background playlist-background"></div> -->
+            <div [style.viewTransitionName]="'playlist-background-' + playlist().id" class="solid-background playlist-background"></div>
           }
 
           <app-playlist-header
@@ -47,7 +48,7 @@ import { PlaylistHeaderComponent } from './ui/playlist-header/playlist-header.co
           <h2 class="playlist-title">{{ playlist()!.title }}</h2>
           <app-card-stats [stats]="playlist()!.stats" />
           <p class="playlist-description">{{ playlist()!.description }}</p>
-          <app-playlist-media [media]="playlist().media" [title]="playlist().title" />
+          <app-playlist-media [id]="playlist().id" [media]="playlist().media" [title]="playlist().title" />
         </header>
 
         <app-tracks />

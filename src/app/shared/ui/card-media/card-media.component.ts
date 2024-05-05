@@ -11,6 +11,7 @@ import { PlayerControlsComponent } from '../player-controls/player-controls.comp
   imports: [PlayerControlsComponent],
 })
 export class CardMediaComponent {
+  id = input.required<string>();
   title = input.required<string>();
   media = input.required<Media>();
 }

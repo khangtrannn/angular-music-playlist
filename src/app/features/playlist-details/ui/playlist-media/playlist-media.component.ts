@@ -11,6 +11,7 @@ import { PlayerControlsComponent } from '../../../../shared/ui/player-controls/p
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlaylistMediaComponent {
+  id = input.required<string>();
   media = input.required<Media>();
   title = input.required<string>();
 }

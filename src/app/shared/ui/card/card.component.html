@@ -4,6 +4,7 @@
   [style.--textColor]="playlist().textColor"
   [style.--backgroundImage]="playlist().backgroundImage"
   [style.--secondaryTextColor]="playlist().secondaryTextColor"
+  [style.--playlist-background]="'playlist-background-' + playlist().id"
   [routerLink]="'/playlists/' + playlist().id"
 >
   @if (playlist().backgroundAnimation === 'floatingSquares') {
@@ -11,7 +12,8 @@
   } @else if (playlist().backgroundAnimation === 'purpleVideo') {
     <app-background-video [isRounded]="true" />
   } @else {
-    <div class="solid-background playlist-background"></div>
+    <div [style.viewTransitionName]="'playlist-background-' + playlist().id" class="solid-background playlist-background"></div>
+    <!-- <div class="solid-background playlist-background"></div> -->
   }
 
   <app-card-header [user]="playlist().user" />
@@ -20,5 +22,5 @@
 
   <app-card-stats [stats]="playlist().stats" />
 
-  <app-card-media [media]="playlist().media" [title]="playlist().title" />
+  <app-card-media [id]="playlist().id" [media]="playlist().media" [title]="playlist().title" />
 </a>
