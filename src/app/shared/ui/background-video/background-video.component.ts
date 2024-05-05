@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, ElementRef, effect, inject, input, viewChild } from "@angular/core";
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Renderer2, effect, inject, input, untracked, viewChild } from "@angular/core";
 import { ViewTransitionService } from "../../services/view-transition.service";
 import { Media } from "../../../playlists.model";
 
 @Component({
   selector: 'app-background-video',
   template: `
-    <div data-persist-container="true">
+    <div #container data-persist-container="true">
       <video
         #video
         loop
@@ -38,12 +38,19 @@ import { Media } from "../../../playlists.model";
 export class BackgroundVideoComponent {
   media = input.required<Media>();
 
+  protected container = viewChild<ElementRef<HTMLDivElement>>('container');
   protected video = viewChild<ElementRef<HTMLVideoElement>>('video');
 
   #viewTransitionService = inject(ViewTransitionService);
+  #renderer = inject(Renderer2);
 
   #persistElementEffect = effect(() => {
-    if (this.video()) {
+    const persistElement = untracked(this.#viewTransitionService.persistElement).get(this.media().url);
+
+    if (persistElement) {
+      this.#renderer.removeChild(this.container()?.nativeElement, this.video()?.nativeElement);
+      this.#renderer.appendChild(this.container()?.nativeElement, persistElement);
+    } else {
       this.#viewTransitionService.setPersistElement(this.media().url, this.video()!.nativeElement);
     }
   }, { allowSignalWrites: true });
