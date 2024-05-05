@@ -24,13 +24,3 @@
   display: block;
   max-height: 360px;
 }
-
-video.playlist-image {
-  display: block;
-  max-width: 100%;
-  border-radius: 0 0 2rem 2rem;
-  min-height: 418px;
-  object-fit: cover;
-  clip-path: inset(1px 1px);
-  margin-bottom: -1px
-}

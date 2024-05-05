@@ -23,11 +23,10 @@
   z-index: 1;
 }
 
-video.playlist-image {
-  display: block;
-  max-width: 100%;
-  min-height: 418px;
-  object-fit: cover;
-  clip-path: inset(1px 1px);
-  margin-bottom: -1px;
+:host ::ng-deep {
+  app-background-video {
+    video.playlist-image {
+      border-radius: unset;
+    }
+  }
 }

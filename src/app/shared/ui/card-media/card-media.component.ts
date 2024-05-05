@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Media } from '../../../playlists.model';
 import { PlayerControlsComponent } from '../player-controls/player-controls.component';
+import { BackgroundVideoComponent } from '../background-video/background-video.component';
 
 @Component({
   selector: 'app-card-media',
@@ -8,7 +9,7 @@ import { PlayerControlsComponent } from '../player-controls/player-controls.comp
   styleUrls: ['./card-media.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [PlayerControlsComponent],
+  imports: [PlayerControlsComponent, BackgroundVideoComponent],
 })
 export class CardMediaComponent {
   id = input.required<string>();

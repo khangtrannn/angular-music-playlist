@@ -11,20 +11,7 @@
       [height]="media().height"
     />
   } @else {
-    <div data-persist-container="true">
-      <video
-        loop
-        muted
-        autoplay
-        playsinline
-        class="playlist-image"
-        data-persist="true"
-        [width]="media().width"
-        [height]="media().height"
-      >
-        <source [src]="media().url" type="video/mp4" />
-      </video>
-    </div>
+    <app-background-video [media]="media()" />
   }
 
   <app-player-controls />
