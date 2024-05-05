@@ -1,18 +1,18 @@
 <header class="card-header">
-  <img [style.viewTransitionName]="'playlist-avatar'" [src]="user().avatar" [alt]="user().name" class="playlist-avatar" />
+  <img [src]="user().avatar" [alt]="user().name" class="playlist-avatar" />
   <div class="user-info">
     <span class="user-name">
-      <span [style.viewTransitionName]="'playlist-user-name'" class="playlist-user-name">
+      <span class="playlist-user-name">
         {{user().name}}
       </span>
     </span>
     <span class="user-date">
-      <span [style.viewTransitionName]="'playlist-user-date'" class="playlist-user-date">
+      <span class="playlist-user-date">
         {{user().date}}
       </span>
     </span>
   </div>
-  <button [style.viewTransitionName]="'playlist-add-button'" class="playlist-add-button" aria-label="Add playlist">
+  <button class="playlist-add-button" aria-label="Add playlist">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

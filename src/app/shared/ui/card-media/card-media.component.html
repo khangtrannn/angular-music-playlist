@@ -5,7 +5,6 @@
   @if (media().type === 'image') {
     <img
       class="playlist-image"
-      [style.viewTransitionName]="'media-image-' + id()"
       [src]="media().url"
       [alt]="title()"
       [width]="media().width"

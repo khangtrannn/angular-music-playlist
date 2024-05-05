@@ -5,7 +5,6 @@ import {
 import {
   provideRouter,
   withComponentInputBinding,
-  withInMemoryScrolling,
   withViewTransitions,
 } from '@angular/router';
 

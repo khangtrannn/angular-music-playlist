@@ -1,6 +1,6 @@
 <div class="playlist-media">
   @if (media().type === 'image') {
-    <img [style.viewTransitionName]="'media-image-' + id()" [src]="media().url" [alt]="title()" class="playlist-image" />
+    <img [src]="media().url" [alt]="title()" class="playlist-image" />
   } @else {
     <div data-persist-container="true">
         <video loop muted autoplay playsinline class="playlist-image" data-persist="true">

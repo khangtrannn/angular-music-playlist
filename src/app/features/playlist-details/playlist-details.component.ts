@@ -3,16 +3,17 @@ import {
   Component,
   computed,
   effect,
+  inject,
   input,
 } from '@angular/core';
 import { PLAYLISTS } from '../../data';
 import { TracksComponent } from './tracks/tracks.component';
 import { FloatingSquaresComponent } from '../../shared/ui/floating-squares/floating-squares.component';
 import { BackgroundVideoComponent } from '../../shared/ui/background-video/background-video.component';
-import { CardHeaderComponent } from '../../shared/ui/card-header/card-header.component';
 import { CardStatsComponent } from '../../shared/ui/card-stats/card-stats.component';
 import { PlaylistMediaComponent } from './ui/playlist-media/playlist-media.component';
 import { PlaylistHeaderComponent } from './ui/playlist-header/playlist-header.component';
+import { ViewTransitionService } from '../../shared/services/view-transition.service';
 
 @Component({
   selector: 'app-playlist-details',
@@ -36,8 +37,7 @@ import { PlaylistHeaderComponent } from './ui/playlist-header/playlist-header.co
           } @else if (playlist()!.backgroundAnimation === 'purpleVideo') {
             <app-background-video />
           } @else {
-            <!-- <div class="solid-background playlist-background"></div> -->
-            <div [style.viewTransitionName]="'playlist-background-' + playlist().id" class="solid-background playlist-background"></div>
+            <div class="solid-background playlist-background"></div>
           }
 
           <app-playlist-header
@@ -45,11 +45,11 @@ import { PlaylistHeaderComponent } from './ui/playlist-header/playlist-header.co
             [avatar]="playlist().user.avatar"
             [date]="playlist().user.date" />
 
-          <h2 [style.viewTransitionName]="'playlist-title'" class="playlist-title">{{ playlist()!.title }}</h2>
+          <h2 class="playlist-title">{{ playlist()!.title }}</h2>
 
           <app-card-stats [stats]="playlist()!.stats" />
 
-          <p [style.viewTransitionName]="'playlist-description'" class="playlist-description">{{ playlist()!.description }}</p>
+          <p class="playlist-description">{{ playlist()!.description }}</p>
           <app-playlist-media [id]="playlist().id" [media]="playlist().media" [title]="playlist().title" />
         </header>
 
@@ -73,4 +73,12 @@ export class PlaylistDetailsComponent {
   playlist = computed(
     () => PLAYLISTS.find((playlist) => playlist.id === this.id())!
   );
+
+  #viewTransitionService = inject(ViewTransitionService);
+
+  constructor() {
+    effect(() => {
+      this.#viewTransitionService.setActivePlaylist(this.id());
+    }, { allowSignalWrites: true });
+  }
 }
