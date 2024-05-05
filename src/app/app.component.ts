@@ -18,10 +18,4 @@ import { ViewTransitionService } from './shared/services/view-transition.service
   imports: [RouterOutlet, HeaderComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-  viewTransitionService = inject(ViewTransitionService);
-
-  constructor() {
-    this.viewTransitionService.initViewTransitionHandle();
-  }
-}
+export class AppComponent {}

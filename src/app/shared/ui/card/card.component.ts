@@ -34,6 +34,7 @@ export class CardComponent {
   protected readonly enabledWithTransition = computed(() => this.#viewTransitionService.activePlaylist() === this.playlist().id);
 
   protected handleOnClicked(): void {
+    this.#viewTransitionService.setPrevPageScroll(document.scrollingElement!.scrollTop);
     this.#viewTransitionService.setActivePlaylist(this.playlist().id);
   }
 }

@@ -4,24 +4,17 @@ import { Injectable, effect, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class ViewTransitionService {
-  #prevPageScroll = undefined;
-
+  #prevPageScroll = signal<number | undefined>(undefined);
   #activePlaylist = signal<string | undefined>(undefined);
+
+  prevPageScroll = this.#prevPageScroll.asReadonly();
   activePlaylist = this.#activePlaylist.asReadonly();
 
   setActivePlaylist(activePlaylist: string | undefined): void {
     this.#activePlaylist.set(activePlaylist);
   }
 
-  initViewTransitionHandle(): void {
-    console.log('init view transition handle');
-  }
-
-  private handlePlaylistTransition(): void {
-    console.log('handle playlist transition 🎸');
-  }
-
-  private handleHomepageTransition(): void {
-    console.log('handle homepage transition 🎆');
+  setPrevPageScroll(scrollTop: number): void {
+    this.#prevPageScroll.set(scrollTop);
   }
 }

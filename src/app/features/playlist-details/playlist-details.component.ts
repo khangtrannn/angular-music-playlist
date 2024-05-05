@@ -76,9 +76,7 @@ export class PlaylistDetailsComponent {
 
   #viewTransitionService = inject(ViewTransitionService);
 
-  constructor() {
-    effect(() => {
+  #activePlaylistEffect = effect(() => {
       this.#viewTransitionService.setActivePlaylist(this.id());
     }, { allowSignalWrites: true });
-  }
 }
