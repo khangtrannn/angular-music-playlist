@@ -45,9 +45,11 @@ import { PlaylistHeaderComponent } from './ui/playlist-header/playlist-header.co
             [avatar]="playlist().user.avatar"
             [date]="playlist().user.date" />
 
-          <h2 class="playlist-title">{{ playlist()!.title }}</h2>
+          <h2 [style.viewTransitionName]="'playlist-title'" class="playlist-title">{{ playlist()!.title }}</h2>
+
           <app-card-stats [stats]="playlist()!.stats" />
-          <p class="playlist-description">{{ playlist()!.description }}</p>
+
+          <p [style.viewTransitionName]="'playlist-description'" class="playlist-description">{{ playlist()!.description }}</p>
           <app-playlist-media [id]="playlist().id" [media]="playlist().media" [title]="playlist().title" />
         </header>
 

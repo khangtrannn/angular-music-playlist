@@ -24,6 +24,8 @@
   background-image: var(--backgroundImage);
   background-repeat: repeat-y;
   background-size: contain;
+
+  z-index: -1;
 }
 
 .playlist-container h1 {
