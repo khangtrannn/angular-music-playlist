@@ -1,6 +1,8 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Renderer2, effect, inject, input, untracked, viewChild } from "@angular/core";
-import { ViewTransitionService } from "../../services/view-transition.service";
+import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, Renderer2, inject, input, viewChild } from "@angular/core";
 import { Media } from "../../../playlists.model";
+import { ViewTransitionService } from "../../services/view-transition.service";
+
+let persistElement: HTMLElement | undefined = undefined;
 
 @Component({
   selector: 'app-background-video',
@@ -35,23 +37,29 @@ import { Media } from "../../../playlists.model";
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BackgroundVideoComponent {
+export class BackgroundVideoComponent implements OnInit, OnDestroy {
+  id = input.required<string>();
   media = input.required<Media>();
-
-  protected container = viewChild<ElementRef<HTMLDivElement>>('container');
-  protected video = viewChild<ElementRef<HTMLVideoElement>>('video');
 
   #viewTransitionService = inject(ViewTransitionService);
   #renderer = inject(Renderer2);
 
-  #persistElementEffect = effect(() => {
-    const persistElement = untracked(this.#viewTransitionService.persistElement).get(this.media().url);
+  protected container = viewChild<ElementRef<HTMLDivElement>>('container');
+  protected video = viewChild<ElementRef<HTMLVideoElement>>('video');
 
-    if (persistElement) {
+  ngOnInit(): void {
+    if (persistElement && this.id() === this.#viewTransitionService.activePlaylist()) {
       this.#renderer.removeChild(this.container()?.nativeElement, this.video()?.nativeElement);
       this.#renderer.appendChild(this.container()?.nativeElement, persistElement);
-    } else {
-      this.#viewTransitionService.setPersistElement(this.media().url, this.video()!.nativeElement);
+      return;
     }
-  }, { allowSignalWrites: true });
+
+    persistElement = undefined;
+  }
+
+  ngOnDestroy(): void {
+    if (this.id() === this.#viewTransitionService.activePlaylist() && !persistElement) {
+      persistElement = this.video()?.nativeElement;
+    }
+  }
 }

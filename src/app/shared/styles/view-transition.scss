@@ -46,6 +46,14 @@
   view-transition-name: playlist-back-button;
 }
 
+::view-transition-old(*) {
+  animation-duration: .5s;
+}
+
+::view-transition-new(*) {
+  animation-duration: .5s;
+}
+
 /**
 * Handle card background transition: expanding and shrinking with
 * different aspect ratios

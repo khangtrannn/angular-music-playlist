@@ -11,7 +11,7 @@ import { BackgroundVideoComponent } from '../../../../shared/ui/background-video
       @if (media().type === 'image') {
         <img [src]="media().url" [alt]="title()" class="playlist-image" />
       } @else {
-        <app-background-video [media]="media()" />
+        <app-background-video [id]="id()" [media]="media()" />
       }
 
       <app-player-controls [showExtraButtons]="true" />
